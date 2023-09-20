@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404
 # Create your views here.
 from django.http import HttpResponse
 
-from django.views.generic.detail import DetailView
+from django.views.generic import DetailView, ListView, TemplateView
 
 import json
 from django.core.serializers.json import DjangoJSONEncoder
@@ -83,3 +83,11 @@ def create_post(request):
         )
         response['Access-Control-Allow-Origin'] = '*'
         return response
+
+class PostListView(ListView):
+    model = Post
+    template_name = 'post/post_list.html'
+    context_object_name = 'posts'
+
+class SobreTemplateView(TemplateView):
+    template_name = 'post/sobre.html'
