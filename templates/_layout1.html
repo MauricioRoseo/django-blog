@@ -3,8 +3,7 @@
 {% load static %} 
 {% block head_title %} 
 Djago Framework 
-{% endblock %} 
-
+{% endblock %}  
 {% block css %}
 <!-- Bootstrap CSS -->
 <link
@@ -22,8 +21,8 @@ Djago Framework
       <a href="{% url 'index' %}">Django</a>
     </h5>
     <a class="p-2 text-dark" href="{% url 'ola' %}">Sobre</a>
+    <a class="p-2 text-dark" href="{% url 'posts_all' %}">Postagens</a>
   </div>
-  <a class="p-2 text-dark" href="{% url 'posts_all' %}">Postagens</a>
 </main>
 {% endblock %} {% block main %}
 <div class="container">
