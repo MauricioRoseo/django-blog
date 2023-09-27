@@ -1,9 +1,6 @@
 {% extends '_base.html' %}
 <!-- herda tudo que já tem em _base.html -->
-{% load static %} 
-{% block head_title %} 
-Djago Framework 
-{% endblock %}  
+{% load static %} {% block head_title %} Djago Framework {% endblock %} 
 {% block css %}
 <!-- Bootstrap CSS -->
 <link
@@ -22,6 +19,9 @@ Djago Framework
     </h5>
     <a class="p-2 text-dark" href="{% url 'ola' %}">Sobre</a>
     <a class="p-2 text-dark" href="{% url 'posts_all' %}">Postagens</a>
+    {% if post.categoria %}
+    <span>Categoria: {{ post.categoria }}</span>
+    {% endif %}
   </div>
 </main>
 {% endblock %} {% block main %}
