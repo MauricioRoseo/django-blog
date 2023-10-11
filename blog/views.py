@@ -11,6 +11,9 @@ from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 
 from blog.models import Post
@@ -21,6 +24,7 @@ def post_show(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     return render(request, 'post/detail.html', {'post': post})
 
+@login_required
 def index(request):
     return render(request, 'index.html', {'titulo': 'Últimos Artigos'})
 
@@ -59,7 +63,7 @@ def get_post(request, post_id):
     
     return response
 
-class PostCreateView(CreateView):
+class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post/post_form.html'
     #fields = ('body_text', )
