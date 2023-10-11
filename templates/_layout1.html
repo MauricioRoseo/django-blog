@@ -1,6 +1,9 @@
 {% extends '_base.html' %}
 <!-- herda tudo que já tem em _base.html -->
-{% load static %} {% block head_title %} Djago Framework {% endblock %} 
+{% load static %} 
+{% block head_title %} 
+Djago Framework 
+{% endblock %} 
 {% block css %}
 <!-- Bootstrap CSS -->
 <link
@@ -9,7 +12,8 @@
 />
 <!-- CSS do Projeto-->
 <link rel="stylesheet" href="{% static 'css/base.css' %}" />
-{% endblock %} {% block header %}
+{% endblock %} 
+{% block header %}
 <main role="main">
   <div
     class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm"
@@ -26,6 +30,7 @@
 </main>
 {% endblock %} {% block main %}
 <div class="container">
+  {% include 'messages.html' %} 
   {% block content %}
   <p>Conteúdo padrão...</p>
   {% endblock content %}
